@@ -19,7 +19,7 @@ A sample of android onTouchEvent handling mechanism
 <br/>return false : 不对事件进行拦截，放行该事件。事件会被传递到当前view的子控件中，由子控件中的dispatchTouchEvent方法进行分发处理。
 <br/>return true : 拦截该事件，将该事件交给当前view的onTouchEvent方法进行处理。
 <br/>return super.inInterceptTouchEvent(ev)：默认拦截方式，和return true一样。该事件会被拦截，将该事件交给当前view的onTouchEvent方法进行处理。（这里需要有一点说明，当有两个view。A view中有一个B view.点击A.A中如果onInterceptTouchEvent()返回super.interceptTouchEvent(ev),则事件将会被A进行拦截，交给A的onTouchEvent()进行处理，如果点击的是B，A中如果onInterceptTouchEvent()返回super.interceptTouchEvent(ev)，则事件将不会被拦截，会被分发到子控件中）
-注：onInterceptTouchEvent仅在当前视图具有从onTouchEvent返回“true”的子视图时才会被调用。 一旦子视图onTouchEvent返回“true”，父视图就有机会截获该事件。
+<br/>注：onInterceptTouchEvent仅在当前视图具有从onTouchEvent返回“true”的子视图时才会被调用。 一旦子视图onTouchEvent返回“true”，父视图就有机会截获该事件。
  
 3.public boolean onTouchEvent(MotionEvent event)
 <br/>当前的view把事件进行了拦截，则事件则会被传递到该方法中
